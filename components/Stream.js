@@ -15,11 +15,14 @@ const Stream = (prop) => {
         ]).then(startVideo)
         const video = document.getElementById('video')
         function startVideo() {
-            navigator.getUserMedia(
-                { video: {} },
-                stream => video.srcObject = stream,
-                err => console.error(err)
-            )
+            navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
+            if (navigator.getUserMedia) {
+                navigator.getUserMedia(
+                    { video: {} },
+                    stream => video.srcObject = stream,
+                    err => console.error(err)
+                )
+            }
         }
 
         video.addEventListener('play', () => {
