@@ -64,7 +64,7 @@ const Stream = (prop) => {
                 } else {
                     console.log("no logs")
                 }
-            }, 1000/10)
+            }, 1000/20)
         })
 
     }
