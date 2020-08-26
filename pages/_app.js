@@ -12,6 +12,7 @@ function App({ Component, pageProps }) {
                 <CSSReset />
                 <Head>
                     <title>Emoonji</title>
+                    <link rel="shortcut icon" href="./assets/favicon.png" />
                 </Head>
                 <Component {...pageProps} />
             </ColorModeProvider>
