@@ -30,6 +30,11 @@ const Stream = (prop) => {
             faceapi.matchDimensions(canvas, displaySize)
             setInterval(async () => {
                 const detections = await faceapi.detectSingleFace(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions()
+
+                var ctx = canvas.getContext('2d')
+                // ctx.globalAlpha = 1
+                ctx.clearRect(0, 0, video.videoWidth, video.videoHeight)
+                ctx.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
                 if (detections) {
 
                     var expression = (detections.expressions)
@@ -51,10 +56,6 @@ const Stream = (prop) => {
 
                         img.src = imgname;
                         console.log(img)
-                        var ctx = canvas.getContext('2d')
-                        // ctx.globalAlpha = 1
-                        ctx.clearRect(0, 0, video.videoWidth, video.videoHeight)
-                        ctx.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
                         // ctx.globalAlpha = 0.8
                         ctx.drawImage(img, x, y, width, width);
                         console.log("drawn")
