@@ -13,7 +13,7 @@ function Navbar() {
             alignItems="center"
         >
             <Flex flexDirection="row" justifyContent="center" alignItems="center">
-                <Heading pl={3} color={color}>
+                <Heading pl={3} color={color} fontWeight={700}>
                     Emoonji
                 </Heading>
             </Flex>

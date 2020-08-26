@@ -1,6 +1,6 @@
 import * as faceapi from 'face-api.js';
 import { useEffect, useState } from "react"
-import { Center, Container, Heading, Box } from "@chakra-ui/core"
+import { Flex, Center, Container, Heading, Box, Wrap, AspectRatio } from "@chakra-ui/core"
 
 const Stream = (prop) => {
     useEffect(() => {
@@ -21,11 +21,12 @@ const Stream = (prop) => {
                 err => console.error(err)
             )
         }
+
         video.addEventListener('play', () => {
             // const canvas = faceapi.createCanvasFromMedia(video)
             // document.body.append(canvas)
             const canvas = document.getElementById('canvas')
-            const displaySize = { width: video.width, height: video.height }
+            const displaySize = { width: video.videoWidth, height: video.videoHeight }
             faceapi.matchDimensions(canvas, displaySize)
             setInterval(async () => {
                 const detections = await faceapi.detectSingleFace(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions()
@@ -51,7 +52,10 @@ const Stream = (prop) => {
                         img.src = imgname;
                         console.log(img)
                         var ctx = canvas.getContext('2d')
-                        ctx.clearRect(0, 0, canvas.width, canvas.height)
+                        // ctx.globalAlpha = 1
+                        ctx.clearRect(0, 0, video.videoWidth, video.videoHeight)
+                        ctx.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+                        // ctx.globalAlpha = 0.8
                         ctx.drawImage(img, x, y, width, width);
                         console.log("drawn")
                         // canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
@@ -60,28 +64,36 @@ const Stream = (prop) => {
                 } else {
                     console.log("no logs")
                 }
-            }, 500)
+            }, 100)
         })
 
     }
     return (
         <Box>
             <Box>
-                <canvas id="canvas" />
-                <video id="video" width="310px" height="400px" autoPlay muted />
+                <Box>
+                    <canvas id="canvas" />
+                </Box>
+                <video id="video" width="100%" height="auto" autoPlay muted />
             </Box>
             <Container
                 pt="1em"
-                >
+            >
                 <Center
                 >
                     <Heading color={prop.color}>{foundexp.charAt(0).toUpperCase() + foundexp.slice(1)}</Heading>
                 </Center>
             </Container>
+
             <style jsx>
                 {
-                    `canvas {
-                    position: fixed;
+                    `#canvas {
+                        width: 100%;
+                    }
+
+                    #video{
+                        position: fixed;
+                        opacity: 0;
                     }`
                 }
             </style>
