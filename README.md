@@ -3,7 +3,7 @@ Emoonji is an AI based Single Page Application, which tracks your facial express
 
 Emoonji Link : https://bit.ly/Emoonji
 
-The web application is fully developed in Next Js (React Js's web framework). The application uses Tensorflow models for the facial expression recognition. 
+The web application is fully developed in Next Js (React Js's framework). The application uses Tensorflow models for the facial expression recognition. 
 I used 3 models in this simple project,
 1. TinyFaceDetector = which is a fast face detection option model compare to the ssdMobileNetv (from my opinion)
 2. FaceLandmark68Net = a model which very lightweight and fast, yet accurate 68 point face landmark detector
@@ -23,7 +23,7 @@ The application name Emoonji is derived from 2 words, which is Emoji (english) +
   <img width="800" src="/screenshots/mobile.jpg">
 </p>
 
-The entire application is full responsive. You can view the app in any viewport. This is the sample interface for the mobile view.
+The entire application is fully responsive. You can view the app in any viewport. This is the sample interface for the mobile view.
 
 The application has a darkmode option on the right corner. This IconButton can switch the entire Ui to dark and light in real time.
 The application is deployed to Vercel, and it works perfectly in the Vercel environment. You are most welcome to fork this repository and contribute to this simple project.
