@@ -7,18 +7,15 @@ The web application is fully developed in Next Js (React Js's web framework). Th
 The application name Emoonji is derived from 2 words, which is Emoji (english) + Moonji (tamil word for face). 
 
 <p align="center">
-  <img width="500" src="/screenshot/ss1.PNG">
-  <img width="500" src="/screenshot/ss2.PNG">
+  <img width="500" src="screenshots/web-1.jpg">
 </p>
 <p align="center">
-  <img width="500" src="/screenshot/ss3.PNG">
-  <img width="500" src="/screenshot/ss4.PNG">
+  <img width="500" src="/screenshots/web-2.jpg">
 </p>
 
 The entire application is full responsive. You can view the app in any viewport. This is the sample interface for the mobile view.
 <p align="center">
-  <img width="200" src="/screenshot/ss9.jpg">
-  <img width="200" src="/screenshot/ss91.PNG">
+  <img width="500" src="/screenshots/mobile.jpg">
 </p>
 
 The application has a darkmode option on the right corner. This IconButton can switch the entire Ui to dark and light in real time.
