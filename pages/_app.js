@@ -9,7 +9,7 @@ function App({ Component, pageProps }) {
       <ColorModeProvider>
         <CSSReset />
         <Head>
-          <title>Emoonji 🤖</title>
+          <title>Emoonji</title>
           <meta property="og:type" content="website" />
           <meta property="og:title" content="Emoonji 🤖" />
           <meta
