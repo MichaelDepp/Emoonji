@@ -19,12 +19,12 @@ const Stream = (prop) => {
 		const video = document.getElementById('video');
 		function startVideo() {
 			navigator.getUserMedia =
+				navigator.mediaDevices.getUserMedia ||
 				navigator.getUserMedia ||
 				navigator.webkitGetUserMedia ||
 				navigator.mozGetUserMedia ||
 				navigator.msGetUserMedia ||
-				navigator.oGetUserMedia ||
-				navigator.mediaDevices.getUserMedia;
+				navigator.oGetUserMedia;
 			if (navigator.getUserMedia) {
 				navigator.getUserMedia(
 					{ video: {} },
