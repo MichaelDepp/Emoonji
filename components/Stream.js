@@ -31,11 +31,15 @@ const Stream = (prop) => {
 					(err) => console.error(err),
 				);
 			} else {
-				navigator.mediaDevices.getUserMedia(
-					{ video: { facingMode: 'user' } },
-					(stream) => (video.srcObject = stream),
-					(err) => console.error(err),
-				);
+				var constraints = {
+					audio: false,
+					video: {
+						facingMode: 'user',
+					},
+				};
+				navigator.mediaDevices.getUserMedia(constraints).then(function success(stream) {
+					video.srcObject = stream;
+				});
 			}
 		}
 
