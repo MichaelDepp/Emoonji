@@ -117,6 +117,7 @@ const Stream = (prop) => {
             height="auto"
             autoPlay
             muted
+            playsInline
           />
         </Box>
       </Center>
