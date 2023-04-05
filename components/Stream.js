@@ -23,7 +23,8 @@ const Stream = (prop) => {
 				navigator.webkitGetUserMedia ||
 				navigator.mozGetUserMedia ||
 				navigator.msGetUserMedia ||
-				navigator.oGetUserMedia;
+				navigator.oGetUserMedia ||
+				navigator.mediaDevices.getUserMedia;
 			if (navigator.getUserMedia) {
 				navigator.getUserMedia(
 					{ video: {} },
