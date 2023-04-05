@@ -37,12 +37,14 @@ const Stream = (prop) => {
 			// const canvas = faceapi.createCanvasFromMedia(video)
 			// document.body.append(canvas)
 			setVideoStarted(true);
-			const canvas = document.getElementById('canvas');
-			const displaySize = {
+			let canvas = document.getElementById('canvas');
+			let displaySize = {
 				width: video.videoWidth,
 				height: video.videoHeight,
 			};
-			faceapi.matchDimensions(canvas, displaySize);
+			if (canvas) {
+				faceapi.matchDimensions(canvas, displaySize);
+			}
 			setInterval(async () => {
 				const detections = await faceapi
 					.detectSingleFace(video, new faceapi.TinyFaceDetectorOptions())
