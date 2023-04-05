@@ -1,4 +1,4 @@
-import * as faceapi from '@vladmandic/face-api/dist/face-api.esm.js';
+import * as faceapi from '@vladmandic/face-api';
 import { useEffect, useState } from 'react';
 import { Flex, Center, Stack, Container, Heading, Box, Wrap, AspectRatio, Spinner } from '@chakra-ui/react';
 import FadeLoader from 'react-spinners/FadeLoader';
