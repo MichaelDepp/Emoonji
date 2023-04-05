@@ -91,14 +91,13 @@ const Stream = (prop) => {
 			<Center>
 				<Box bg="red" width={['100%', '70%']} height={['100%', '50%']}>
 					<Box>
-						<canvas id="canvas" />
-						{/* {videoStarted ? (
+						{videoStarted ? (
 							<canvas id="canvas" />
 						) : (
 							<Box bg="green" w={'40px'} h={'40px'} my={20}>
 								<FadeLoader color={'#2196F3'} loading={!videoStarted} size={150} />
 							</Box>
-						)} */}
+						)}
 					</Box>
 					<video style={{ background: 'red' }} id="video" width="100%" height="auto" autoPlay muted playsInline />
 				</Box>
