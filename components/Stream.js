@@ -100,7 +100,7 @@ const Stream = (prop) => {
 							</Box>
 						)} */}
 					</Box>
-					<video style={{ background: 'red' }} id="video" width="100%" height="auto" autoPlay muted playsInline />
+					<video style={{ background: 'red' }} id="video" width="100%" height="auto" autoplay muted playsinline />
 				</Box>
 			</Center>
 			<Container pt="1em">
