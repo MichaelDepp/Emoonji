@@ -100,7 +100,7 @@ const Stream = (prop) => {
 		<Box>
 			<Center>
 				<Box width={['100%', '70%']}>
-					<Box>
+					<Center>
 						{videoStarted ? (
 							<canvas id="canvas" />
 						) : (
@@ -108,8 +108,8 @@ const Stream = (prop) => {
 								<FadeLoader color={'#2196F3'} loading={!videoStarted} size={150} />
 							</Box>
 						)}
-					</Box>
-					<video id="video" width="100%" height="auto" autoPlay muted playsInline />
+					</Center>
+					<video id="video" width="100%" autoPlay muted playsInline />
 				</Box>
 			</Center>
 			<Container pt="1em">

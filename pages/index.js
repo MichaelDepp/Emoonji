@@ -12,7 +12,7 @@ function Index() {
 	return (
 		<Box bg={bg} p={4} m="0" color={color} minH="100vh">
 			<Center>
-				<Container maxW="70em">
+				<Container maxW="90em">
 					<Box float="right">
 						<IconButton
 							aria-label="Toggle dark mode"
@@ -21,14 +21,16 @@ function Index() {
 						/>
 					</Box>
 					<Navbar></Navbar>
-					<Box mt="1em">
-						<Center>
-							<Box>
-								<Stream color={color} />
-								{/*<video id="video" width="720" height="560" autoPlay muted></video>*/}
-							</Box>
-						</Center>
-					</Box>
+					<Center>
+						<Box width={['100%', '70%']} mt="1em">
+							<Center>
+								<Box width="100%">
+									<Stream color={color} />
+									{/*<video id="video" width="720" height="560" autoPlay muted></video>*/}
+								</Box>
+							</Center>
+						</Box>
+					</Center>
 					<Center pt="1em">
 						<Text fontSize="sm" color={color} textAlign="center">
 							Emoonji can detect expressions like Neutral, Happy, Sad, Surprised, Angry, Disgusted, & Fearful
