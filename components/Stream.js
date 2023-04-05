@@ -19,7 +19,7 @@ const Stream = (prop) => {
 		const video = document.getElementById('video');
 		function startVideo() {
 			navigator.getUserMedia =
-				navigator.mediaDevices.getUserMedia ||
+				navigator.mediaDevices ||
 				navigator.getUserMedia ||
 				navigator.webkitGetUserMedia ||
 				navigator.mozGetUserMedia ||
