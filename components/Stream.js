@@ -45,45 +45,45 @@ const Stream = (prop) => {
 			};
 			if (canvas) {
 				faceapi.matchDimensions(canvas, displaySize);
-			}
-			setInterval(async () => {
-				const detections = await faceapi
-					.detectSingleFace(video, new faceapi.TinyFaceDetectorOptions())
-					.withFaceLandmarks()
-					.withFaceExpressions();
+				setInterval(async () => {
+					const detections = await faceapi
+						.detectSingleFace(video, new faceapi.TinyFaceDetectorOptions())
+						.withFaceLandmarks()
+						.withFaceExpressions();
 
-				var ctx = canvas.getContext('2d');
-				// ctx.globalAlpha = 1
-				ctx.clearRect(0, 0, video.videoWidth, video.videoHeight);
-				ctx.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
-				if (detections) {
-					var expression = detections.expressions;
-					const values = Object.values(expression);
-					var exp_inx = values.indexOf(Math.max.apply(Math, values));
-					const exp = Object.getOwnPropertyNames(expression)[exp_inx];
-					setfoundexp(exp);
+					var ctx = canvas.getContext('2d');
+					// ctx.globalAlpha = 1
+					ctx.clearRect(0, 0, video.videoWidth, video.videoHeight);
+					ctx.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+					if (detections) {
+						var expression = detections.expressions;
+						const values = Object.values(expression);
+						var exp_inx = values.indexOf(Math.max.apply(Math, values));
+						const exp = Object.getOwnPropertyNames(expression)[exp_inx];
+						setfoundexp(exp);
 
-					var imgname = './assets/' + exp + '.png';
+						var imgname = './assets/' + exp + '.png';
 
-					const resized = faceapi.resizeResults(detections, displaySize);
+						const resized = faceapi.resizeResults(detections, displaySize);
 
-					if (resized.alignedRect.box) {
-						let x = resized.alignedRect.box.x;
-						let y = resized.alignedRect.box.y;
-						let width = resized.alignedRect.box.width;
+						if (resized.alignedRect.box) {
+							let x = resized.alignedRect.box.x;
+							let y = resized.alignedRect.box.y;
+							let width = resized.alignedRect.box.width;
 
-						var img = new Image();
+							var img = new Image();
 
-						img.src = imgname;
-						// ctx.globalAlpha = 0.8
-						ctx.drawImage(img, x, y, width, width);
-						// canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
-						// faceapi.draw.drawDetections(canvas, resizedDetections)
+							img.src = imgname;
+							// ctx.globalAlpha = 0.8
+							ctx.drawImage(img, x, y, width, width);
+							// canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
+							// faceapi.draw.drawDetections(canvas, resizedDetections)
+						}
+					} else {
+						console.log('no logs');
 					}
-				} else {
-					console.log('no logs');
-				}
-			}, 1000 / 10);
+				}, 1000 / 10);
+			}
 		});
 	}
 	return (
