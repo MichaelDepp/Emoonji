@@ -99,7 +99,7 @@ const Stream = (prop) => {
 	return (
 		<Box>
 			<Center>
-				<Box width={['100%', '70%']} height={['100%', '50%']}>
+				<Box width={['100%', '70%']}>
 					<Box>
 						{videoStarted ? (
 							<canvas id="canvas" />
