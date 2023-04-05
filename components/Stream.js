@@ -19,7 +19,6 @@ const Stream = (prop) => {
 		const video = document.getElementById('video');
 		function startVideo() {
 			navigator.getUserMedia =
-				navigator.mediaDevices.getUserMedia ||
 				navigator.getUserMedia ||
 				navigator.webkitGetUserMedia ||
 				navigator.mozGetUserMedia ||
@@ -27,7 +26,7 @@ const Stream = (prop) => {
 				navigator.oGetUserMedia;
 			if (navigator.getUserMedia) {
 				navigator.getUserMedia(
-					{ video: {} },
+					{ video: true },
 					(stream) => (video.srcObject = stream),
 					(err) => console.error(err),
 				);
