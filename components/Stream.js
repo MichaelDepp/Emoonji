@@ -37,6 +37,7 @@ const Stream = (prop) => {
 		video.addEventListener('play', () => {
 			// const canvas = faceapi.createCanvasFromMedia(video)
 			// document.body.append(canvas)
+			console.log('video playeddd ---- > ', videoStarted)
 			setVideoStarted(true);
 			let canvas = document.getElementById('canvas');
 			let displaySize = {
