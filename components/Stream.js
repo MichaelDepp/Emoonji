@@ -26,7 +26,13 @@ const Stream = (prop) => {
 				navigator.oGetUserMedia;
 			if (navigator.getUserMedia) {
 				navigator.getUserMedia(
-					{ video: true },
+					{ video: { facingMode: 'user' } },
+					(stream) => (video.srcObject = stream),
+					(err) => console.error(err),
+				);
+			} else {
+				navigator.mediaDevices.getUserMedia(
+					{ video: { facingMode: 'user' } },
 					(stream) => (video.srcObject = stream),
 					(err) => console.error(err),
 				);
